@@ -1,1 +1,3 @@
-# AML_MLflow_ManyModels
+# Azure Machine Learning - Many Models + MLflow Training/Evaluation/Registration Pipeline
+
+Sample Azure Machine Learning pipeline demonstrating how to train and evaluate multiple regression models in parallel using MLflow to support model tracking. In this sample, the standard Boston Home Prices dataset is used to create 10 different datasets - each of which contain a unique subset of features. From each of these unique datasets, we train a custom Scikit-Learn `ElasticNetCV` regression model, which is first compared to its matching "champion" model with the better performer being added to the registry. As a terminal step, all registered models (read, only the best performers) are packaged into a Docker container which exposes them at a RESTful API endpoint. This container is then pushed into an Azure Container Registry and can be tested by running the sample code in `AML_PackageTesting.ipynb`.
